@@ -27,8 +27,8 @@ Clone this repository and install dependencies
 ## Application Structure
 
 ### Public part (accessible without authentication)
-### Private part (vailable for registered users)
-### Admin part (accessible for admin)
+### Private part (available for registered users)
+### Admin part (accessible for admin users)
 
 
 ## Application Overview
@@ -37,7 +37,7 @@ This page is containing detailed information about the user, their created trips
 
 ## Pages:
 
-### Public Pages:
+### Public Pages (logged out users):
 
 Home page
 ![Home Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Home.png)
@@ -58,7 +58,21 @@ Catalog page
 ![Catalog Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Catalog.png)
 
 Detail page
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-guest.png.png)
+
+### Private Pages (logged in users):
+
+Detail page (author)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-author.png.png)
+
+Detail page (with available seats)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-available-seats.png)
+
+Detail page (already joined)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-joined.png)
+
+Detail page (no seats available)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-no-available-seats.png)
 
 
 
