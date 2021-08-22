@@ -1,9 +1,7 @@
 # Shared Trips Application
+<img src="https://raw.githubusercontent.com/MihailValkov/shared-trips/main/client/src/assets/static/images/trip-logo.png" width="150" height="150">
 
-  <a href="https://shared-travel.herokuapp.com/"> 
-  <img src="https://raw.githubusercontent.com/MihailValkov/shared-trips/main/client/src/assets/static/images/trip-logo.png" style="max-width:150px;">
-  <p style="margin-top:-30px;">Go to website</p>
-  </a>
+- [Go to website](https://shared-travel.herokuapp.com)
 
 
 ## Documentation
