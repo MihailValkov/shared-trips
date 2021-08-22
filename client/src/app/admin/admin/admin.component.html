@@ -1,0 +1,31 @@
+<div [class.overlay]="!(isActive$ | async)" (click)="show()"></div>
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+<div class="admin-sidebar" [class.active]="isActive$|async">
+    <span class="navigation" (click)="show()"><i class="fas fa-arrow-circle-left"></i></span>
+    <li>
+        <div class="sidebar-header">
+            <div class="user-pic"><img class="img-responsive" [src]="(admin$|async)?.avatarImg" alt="User picture">
+            </div>
+            <div class="user-info">
+                <span class="user-name"><strong>{{(admin$|async)?.username}}</strong></span>
+                <span class="user-role">Administrator</span>
+                <span class="user-status"><i class="fas fa-circle"></i><span>Online</span></span>
+            </div>
+        </div>
+    </li>
+    <li (click)="show()" routerLinkActive="active"><a routerLink="dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+    </li>
+    <li (click)="show()" routerLinkActive="active"><a [routerLink]="['user/',(admin$|async)?._id]"><i
+         class="fas fa-id-card"></i>Profile</a></li>
+    <li (click)="show()" routerLinkActive="active"><a routerLink="users" [queryParams]={page:1,limit:5}><i
+         class="fas fa-users"></i>Users</a></li>
+    <li (click)="show()" routerLinkActive="active"><a routerLink="trips" [queryParams]={page:1,limit:5}><i
+         class="fas fa-route"></i>Trips</a></li>
+</div>
+
+<div class="hidden-sidebar" [class.active]="!(isActive$|async)" (click)="show()">
+    <i class="fas fa-arrow-circle-right"></i>
+    <p class="text">Admin Panel</p>
+</div>
+<app-statistic [data]="(statistics$ | async)!" [class.active]="(isActive$|async)"></app-statistic>
+<router-outlet></router-outlet>

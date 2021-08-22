@@ -1,0 +1,13 @@
+<div class="trip-card">
+    <h4>Destination: <p>from <span>{{trip?.startPoint}}</span> to <span>{{trip?.endPoint}}</span></p></h4>
+    
+    <h4>Date and Time: <p>on <span>{{trip?.date}}</span> at <span>{{trip?.time}}</span></p></h4>
+    
+    <div class="buddies">
+        <h4>Joined buddies</h4>
+        <div class="buddies-list">
+            <app-buddy-item *ngFor="let buddy of trip?.buddies" [buddy]="buddy"></app-buddy-item>
+            <p *ngIf="trip?.buddies?.length === 0">there are no buddies yet...</p>
+        </div>
+    </div>
+</div>

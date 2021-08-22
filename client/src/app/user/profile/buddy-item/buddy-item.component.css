@@ -1,0 +1,20 @@
+.icon {
+    padding: 5px 10px;
+}
+
+.icon img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    max-width: 500px;
+    transition: all .2s ease-in-out;
+    border: 1px solid #848181;
+}
+
+h4, p {
+    text-align: center;
+    margin: 5px;
+    word-break: break-all;
+}

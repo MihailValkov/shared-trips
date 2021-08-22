@@ -1,0 +1,36 @@
+.user {
+  background-color: #101010;
+}
+
+footer {
+  margin-top: 30px;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+.text-white {
+  color: #fff!important;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+.m-0 {
+  margin: 0!important;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.admin {
+  background: #101010;
+}

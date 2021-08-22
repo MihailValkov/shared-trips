@@ -1,0 +1,11 @@
+<footer *ngIf="!(isAdmin$ | async)" id="sticky-footer" class="user">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Shared Trip 2021</p>
+    </div>
+</footer>
+
+<footer *ngIf="(isAdmin$ | async)" id="sticky-footer" class="admin">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Admin Panel designed by Mihail Valkov</p>
+    </div>
+</footer>

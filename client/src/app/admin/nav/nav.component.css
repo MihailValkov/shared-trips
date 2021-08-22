@@ -1,0 +1,48 @@
+.shows-location {
+    border: 1px solid transparent;
+    height: 50px;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    background: #101010;
+    color: white;
+}
+
+.location-text {
+    display: inline-block;
+    margin: 0;
+}
+
+.location {
+    font-size: 16px;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+    padding: 10px 30px;
+}
+.location strong {
+    color:#16c7ff;
+    padding-left: 5px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

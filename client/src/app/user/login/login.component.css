@@ -1,0 +1,121 @@
+#login-page {
+    padding: 20px;
+}
+
+.login-page {
+    background: rgb(102 94 94 / 50%);
+    width: 70%;
+    padding-bottom: 1rem!important;
+    min-height: 525px;
+}
+
+label, .container>h1 {
+    color: white;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.login-page>h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b3a0a0;
+}
+
+.login {
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+}
+
+.login input {
+    text-align: center;
+}
+
+input.form-control-2, textarea.form-control, input.form-control, textarea:disabled {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc
+}
+input.invalid {
+    border: 1px solid #eb4b19;
+}
+
+.inline {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+textarea, input {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button:disabled {
+    background: rgba(0, 0, 0, 0.5);
+    cursor: not-allowed;
+}
+
+.form-group p {
+    color: #f8f9fa;
+    text-shadow: 1px 1px #007bff;
+    font-size: 20px;
+    font-style: italic;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+    .container {
+       width: 100%;
+    }
+    .container>div {
+        width: 100%;
+        margin-top:20px;
+    }
+}

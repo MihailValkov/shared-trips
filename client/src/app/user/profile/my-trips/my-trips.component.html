@@ -1,0 +1,10 @@
+<app-loader *ngIf="(isLoading$ | async)"></app-loader>
+<div class="profile-container info">
+    <h2>Created Trips Information</h2>
+    <div class="trips">
+        <app-trip-card *ngFor="let trip of (ownTrips$ |async)" [trip]="trip"></app-trip-card>
+        <p *ngIf="(ownTrips$ | async)?.length == 0">there are no offer trips yet...</p>
+    </div>
+    <app-pagination class="user" *ngIf="(ownTrips$ | async)?.length" [limit]="3" [baseUrl]="'/user/profile/my-trips'"
+        [count]="(count$ | async)||0" [page]="(page$ | async) || 1"></app-pagination>
+</div>

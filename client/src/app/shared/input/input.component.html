@@ -1,0 +1,13 @@
+<div class="upload drop-area" [class.uploading]="uploading">
+    <div class="upload-info">
+        <span class="upload-filename drop-text" [class.inactive]="inactive">{{fileName}}</span>
+        <label for="file" class="upload-button-text">
+            <i class="fas fa-cloud-upload-alt" *ngIf="btnText != 'Successfull'"></i>
+            <i class="far fa-check-circle success" *ngIf="btnText == 'Successfull'"></i>
+            <input #inputRef type="file" id="file" (change)="upload($event)" />
+            <i *ngIf="!isValid" class="fas fa-exclamation-circle upload-error"></i>
+        </label>
+    </div>
+    <div class="upload-hint">Uploading... {{progress}}</div>
+    <div class="upload-progress"></div>
+</div>

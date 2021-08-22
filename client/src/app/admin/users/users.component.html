@@ -1,0 +1,62 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<section class="users" [class.max]="!(isActive$|async)">
+    <app-nav title="Users"></app-nav>
+    <div>
+        <div class="newest-members">
+            <div class="notifications">
+                <div class="notify-header">
+                    <h2><i class="fas"><span>Users</span></i></h2>
+                    <span>
+                        <input type="text" placeholder="Search user..." name="search">
+                        <span><i class="fas fa-search"></i></span>
+                    </span>
+                    <div class="action-holder"><i class="far fas fa-sort-up">hide</i></div>
+                </div>
+                <div id="show-hide" class="notify-box" *ngIf="(page$ |async) as page">
+                    <app-loader class="main-view" *ngIf="(isLoading$|async)"></app-loader>
+                    <table class="customers" *ngIf="!(isLoading$|async)">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Profession</th>
+                                <th>Company</th>
+                                <th>Register Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="!(isLoading$|async)">
+                            <tr *ngFor="let user of (users$ | async); index as i;">
+                                <td>{{((page*limit) - limit)+i+1}}</td>
+                                <td>{{user.username}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.city}}</td>
+                                <td>{{user.profession}}</td>
+                                <td>{{user.company}}</td>
+                                <td>
+                                    <p>{{user.createdAt.split(',')[0]}}</p>
+                                    <p>{{user.createdAt.split(',')[1]}}</p>
+                                </td>
+                                <td>{{user.status}}</td>
+                                <td *ngIf="count$|async as count">
+                                    <a class="actions-edit" [routerLink]="['/admin/panel/user',user._id]"
+                                        title="Edit User Profile"><i class="fas fa-edit"></i></a>
+                                    <button class="actions-remove" [disabled]="user.status === 'Admin'"
+                                        title="Delete User Profile" (click)="deleteUser(user._id,count)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <app-pagination class="admin" [limit]="limit" [baseUrl]="'/admin/panel/users'" [count]="(count$ | async) || 0"
+                        [page]="page"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

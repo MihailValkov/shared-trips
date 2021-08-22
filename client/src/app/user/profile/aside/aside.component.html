@@ -1,0 +1,16 @@
+<aside>
+    <div class="profile-container user">
+        <h2>User Information</h2>
+        <div class="profile-info">
+            <p>Works at <span>{{user?.company}}</span></p>
+            <p>Profession <span>{{user?.profession}}</span></p>
+            <p>Live in <span>{{user?.city}}</span></p>
+            <p>Name <span>{{user?.username}}</span></p>
+            <p>Email <span>{{user?.email}}</span></p>
+        </div>
+    </div>
+    <div class="profile-container user count">
+        <h2>Total Trips</h2>
+        <p>{{user?.createdTrips?.length || 0}}</p>
+    </div>
+</aside>

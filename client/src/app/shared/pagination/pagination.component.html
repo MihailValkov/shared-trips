@@ -1,0 +1,9 @@
+<div class="pagination">
+    <span class="pagination-btn">
+        <button (click)="previous()" [disabled]="page == 1">Previous</button>
+    </span>
+    <span class="pagination-btn">
+        <button (click)="next()" [disabled]="page >= count/limit">Next</button>
+    </span>
+    <p class="pages">Page {{page}} of {{pages}} pages.</p>
+</div>

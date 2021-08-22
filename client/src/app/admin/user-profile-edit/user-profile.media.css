@@ -1,0 +1,169 @@
+#status:hover {
+    cursor: pointer;
+}
+
+.select-down {
+    display: -webkit-box;
+    right: 0;
+    padding-right: 7px;
+    position: absolute;
+    color: white;
+}
+
+app-input {
+    width: 70%;
+    margin: 5px auto;
+}
+
+.pass {
+    width: 100%;
+}
+
+.pass input {
+    pointer-events: none;
+}
+
+#change {
+    display: none;
+}
+
+label[for="change"] {
+    cursor: pointer;
+}
+
+label[for="change"] {
+    color: #16c7ff;
+    padding-top: 0;
+}
+
+.pass label .fa-check {
+    display: none;
+    color: #5cb85c;
+    padding: 5px;
+}
+
+.pass label .fa-times {
+    display: inline-block;
+    color: #d9534f;
+    padding: 5px;
+}
+
+.fa-check:before, .fa-times:before {
+    padding-right: 5px;
+}
+
+#change:checked+.pass input {
+    pointer-events: visible;
+}
+
+#change:not(checked) + .pass .icon{
+    color: #d9534f;
+}
+
+#change:checked+.pass label .fa-check {
+    display: inline-block;
+}
+
+#change:checked+.pass label .fa-times {
+    display: none;
+}
+
+#change:checked+.pass .icon {
+    color: #999999;
+}
+
+#change {
+    margin-left: 10px;
+    margin-top: 17px;
+}
+
+#change:checked+.pass .icon {
+    color: #999999;
+}
+
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+    .col-md-5 {
+        flex: 0 0 auto;
+        width: 35.666667%;
+    }
+    .col-md-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 49.5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile {
+        margin-left: 40px;
+    }
+    .profile.max {
+        margin-left: 0px;
+    }
+    .content {
+        width: 100%;
+    }
+    .rounded {
+        margin-left: 0;
+        width: 100%;
+    }
+    .p-3{
+        margin: 0;
+    }
+    .row {
+        margin: 0 auto;
+        display: block;
+    }
+    .border-right {
+        border: none;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    .user-info:last-of-type {
+        font-weight: 700!important;
+        border-bottom: 2px solid #444;
+        padding-bottom: 10px;
+    }
+    .user-inputs{
+        padding-bottom: 0!important;
+    }
+    .last-section, .last-section .p-3 {
+        margin-top: 0!important;
+        padding-top: 0!important;
+    }
+    form {
+        display: block;
+        width: 100%;
+    }
+    form > div {
+        display: block;
+    }
+    .col-md-6 {
+        width: 100%;
+    }
+    .inputs {
+        flex-wrap: wrap;
+    }
+
+}

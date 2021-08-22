@@ -1,0 +1,32 @@
+<section class="col-md-6 text-center col-lg" id="profile-page">
+    <div>
+        <div class="profile">
+            <div class="profile-avatar">
+                <img [src]="(user$ | async)?.avatarImg" alt="profile-img" class="profile-img">
+                <p class="edit-avatar">
+                    <i class="fas fa-edit" (click)="showAvatarInput()"></i>edit avatar photo
+                    <app-input class="edit-avatar-photo upload-image" [class.active]="(avatarInputIsActive$|async)"
+                        (imageUrl)="getImageUrl($event,'avatar')" *ngIf="(avatarInputIsActive$|async)">
+                    </app-input>
+                </p>
+                <div class="profile-name">{{(user$ | async)?.username}}</div>
+            </div>
+            <img [src]="(user$ | async)?.coverImg" alt="profile-cover" class="profile-cover">
+            <p class="edit-cover">
+                <i class="fas fa-edit" (click)="showCoverInput()"></i>edit cover photo
+                <app-input class="edit-cover-photo upload-image" [class.active]="(coverInputIsActive$|async)"
+                    (imageUrl)="getImageUrl($event,'cover')" *ngIf="(coverInputIsActive$|async)">
+                </app-input>
+            </p>
+            <div class="profile-menu">
+                <a class="profile-menu-link" routerLink="my-trips" [queryParams]={page:1,limit:3}
+                    [class.active]="isLinkActive('/user/profile/my-trips')">My Trips</a>
+                <a class="profile-menu-link" routerLinkActive="active" routerLink="edit-profile">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <app-aside [user]="user$ | async"></app-aside>
+        <router-outlet></router-outlet>
+    </div>
+</section>

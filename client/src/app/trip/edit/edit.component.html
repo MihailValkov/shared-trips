@@ -1,0 +1,104 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<app-loader class="main-view" *ngIf="(isLoading$|async)"></app-loader>
+
+<section id="edit-trip-page" *ngIf="(trip$|async) as trip">
+    <div class="container edit">
+        <h1>Edit trip</h1>
+        <div>
+            <form [formGroup]="form" (ngSubmit)="submitHandler(trip._id)">
+                <div class="form-group edit-input">
+                    <div class="inline">
+                        <label for="startPoint"> <i class="fas fa-map-marker-alt"></i> Starting Point</label>
+                        <input type="text" formControlName="startPoint" class="form-control-2" id="startPoint"
+                            placeholder="Sofia" [class.invalid]="validateField('startPoint')">
+                        <div class="error" *ngIf="validateField('startPoint')">
+                            * Starting Point should be at least 4 characters long!</div>
+                    </div>
+
+                    <div class="inline">
+                        <label for="endPoint"> <i class="fas fa-map-marker-alt"></i> End Point</label>
+                        <input type="text" formControlName="endPoint" class="form-control-2" id="endPoint"
+                            placeholder="Svilengrad" [class.invalid]="validateField('endPoint')">
+                        <div class="error" *ngIf="validateField('endPoint')">* End Point should be at least 4 characters
+                            long!</div>
+                    </div>
+                </div>
+
+                <div class="form-group edit-input">
+                    <div class="inline">
+                        <label for="date"> <i class="far fa-calendar-alt"></i> Date</label>
+                        <input type="date" formControlName="date" class="form-control-2" name="date" id="date"
+                            placeholder="01 July 2021" [class.invalid]="validateField('date')">
+                        <div class="error" *ngIf="validateField('date')">* Date is required!</div>
+                    </div>
+
+                    <div class="inline">
+                        <label for="time"> <i class="far fa-clock"></i> Time</label>
+                        <input type="time" formControlName="time" class="form-control-2" name="time" id="time"
+                            placeholder="19:00 PM" [class.invalid]="validateField('time')">
+                        <div class="error" *ngIf="validateField('time')">* Time is required!</div>
+                    </div>
+                </div>
+
+                <div class="form-group edit-input">
+                    <div class="inline">
+                        <label for="carImage">Car Image</label>
+                        <app-input [currentImage]="trip?.carImage" (imageUrl)="getImageUrl($event)"></app-input>
+                        <div class="error" *ngIf="form.get('carImage')?.errors?.invalid">* {{errorMessage$|async}}</div>
+                    </div> 
+
+                    <div class="inline">
+                        <label for="carBrand">Car Brand</label>
+                        <input type="text" formControlName="carBrand" class="form-control-2" name="carBrand"
+                            id="carBrand" placeholder="Dacia Sandero" [class.invalid]="validateField('carBrand')">
+                        <div class="error" *ngIf="validateField('carBrand')">* Car Brand should be at least 4 characters
+                            long!</div>
+                    </div>
+
+                </div>
+
+                <div class="form-group edit-input">
+                    <div class="inline">
+                        <label for="seats">Available Seats</label>
+                        <input type="text" formControlName="seats" class="form-control-2" name="seats" id="seats"
+                            placeholder="4" [class.invalid]="validateField('seats')">
+                        <div class="error" *ngIf="validateField('seats')">* Seats must be a positive number in range
+                            0-4!</div>
+                    </div>
+                    <div class="inline">
+                        <label for="price">Price</label>
+                        <input type="text" formControlName="price" class="form-control-2" name="price" id="price"
+                            placeholder="25" [class.invalid]="validateField('price')">
+                        <div class="error" *ngIf="validateField('price')">* Price must be a positive number in range
+                            1-50!</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <div class="inline">
+                        <textarea class="form-control" formControlName="description" id="description"
+                            placeholder="Information about the trip"
+                            [class.invalid]="validateField('description')"></textarea>
+                        <div class="error" *ngIf="validateField('description')">* Description should be at least 10
+                            characters long!</div>
+                    </div>
+
+                </div>
+                <div class="form-group extras">
+                    <input type="checkbox" class="form-control-2" id="smoking" formControlName="smoking"/>
+                    <input type="checkbox" class="form-control-2" id="eating" formControlName="eating"/>
+                    <input type="checkbox" class="form-control-2" id="drinking" formControlName="drinking"/>
+                     <input type="checkbox" class="form-control-2" id="climatic" formControlName="climatic"/>
+                </div>
+                <div class="form-group extras">
+                    <span>Smoking</span>
+                    <span>Eating</span>
+                    <span>Drinking</span>
+                    <span>Climatic</span>
+                </div>
+                <button class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>

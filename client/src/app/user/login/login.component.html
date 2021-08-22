@@ -1,0 +1,36 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<app-loader class="main-view" *ngIf="(isLoading$|async)"></app-loader>
+
+<section id="login-page">
+    <div class="container login-page">
+        <h1>Login</h1>
+        <div class="login">
+            <form [formGroup]="form" (ngSubmit)="submitHandler()">
+                <div class="form-group">
+                    <div class="inline">
+                        <label for="email">Email address</label>
+                        <input type="text" class="form-control" id="email" placeholder="Enter email"
+                            formControlName="email" [class.invalid]="validateField('email')">
+                        <div class="error" *ngIf="validateField('email')">* Email is invalid!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="inline">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            formControlName="password">
+                        <div class="error" *ngIf="validateField('password')">* Password should be at least 4
+                            characters long!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p>Not registered yet? <a routerLink="/user/register">Register Now!</a></p>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>

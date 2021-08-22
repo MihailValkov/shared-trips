@@ -1,0 +1,92 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<app-loader class="main-view" *ngIf="(isLoading$|async)"></app-loader>
+
+<section class="py-5 details" id="trip-details-page" *ngIf="(trip$ | async) as trip">
+    <div class="container trip-details">
+        <h1>Details</h1>
+        <div class="destination">
+            <div>
+                <span class="icon"><i class="fas fa-map-marked-alt"></i></span>
+                <h5><span>Destination</span></h5>
+                <h5>from <span>{{trip.startPoint}}</span> to <span>{{trip.endPoint}}</span> </h5>
+            </div>
+            <app-buddy type="Driver" [buddy]="(trip$|async)!.creator"></app-buddy>
+            <div>
+                <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                <h5><span>Date and time</span></h5>
+                <h5> <span>{{trip.date}}</span> at <span>{{trip.time}}</span> </h5>
+            </div>
+        </div>
+        <p class="line"></p>
+        <div class="buddies-info">
+            <h5><span>Shared trip Buddies</span></h5>
+            <div class="destination buddies" *ngIf="trip.buddies?.length">
+                <app-buddy *ngFor="let buddy of trip.buddies" [buddy]="buddy"></app-buddy>
+            </div>
+            <div class="destination buddies" *ngIf="trip.buddies?.length == 0">
+                <p>there are no buddies yet...</p>
+            </div>
+        </div>
+        <p class="line"></p>
+        <h5 class="brand">Car Brand: <span class="lead">{{trip.carBrand}}</span></h5>
+        <div class="trip-info">
+            <div class="trip-img">
+                <img class="img-fluid rounded" [src]="trip.carImage" alt="car-image">
+            </div>
+            <div class="trip-desc">
+                <h5>Information about the trip</h5>
+                <textarea class="lead" disabled>{{trip.description}}</textarea>
+                <h5>Price: <span class="lead">{{trip.price}}</span> BGN</h5>
+                <div class="actions" *ngIf="(isLogged$ | async) && (tripInfo$ | async) as info">
+               
+                    <a [routerLink]="['/trip/edit',trip._id]" class="btn btn-warning" *ngIf="info.isOwner || (user$|async)?.status == 'Admin'">Edit
+                        this trip</a>
+                        <a (click)="deleteRecord(trip._id)" class="btn btn-danger" *ngIf="info.isOwner || (user$|async)?.status == 'Admin'">Delete
+                            this
+                            trip</a>
+
+                    <a (click)="joinTrip(trip._id)" class="btn btn-join"
+                        *ngIf="(!info.isOwner) && !info.alreadyJoined && trip.seats > 0">Join
+                        now, [
+                        {{trip.seats}} ] seats
+                        left!</a>
+
+                    <span class="btn btn-info" *ngIf="info.alreadyJoined">Already joined. Don't be
+                        late!</span>
+
+
+                    <span class="btn btn-secondary" *ngIf="trip.seats == 0 && !info.alreadyJoined && !info.isOwner">No
+                        seats available!
+                        [0]</span>
+                </div>
+
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td><i class="fas fa-smoking"></i>Smokе</td>
+                <td>
+                    <i class="fas fa-check allow" *ngIf="trip.smoking"></i>
+                    <i class="fas fa-times-circle not-allow" *ngIf="!trip.smoking"></i>
+                </td>
+                <td><i class="fas fa-utensils"></i>Eat</td>
+                <td>
+                    <i class="fas fa-check allow" *ngIf="trip.eating"></i>
+                    <i class="fas fa-times-circle not-allow" *ngIf="!trip.eating"></i>
+                </td>
+                <span></span>
+                <td><i class="fas fa-beer"></i>Drink</td>
+                <td>
+                    <i class="fas fa-check allow" *ngIf="trip.drinking"></i>
+                    <i class="fas fa-times-circle not-allow" *ngIf="!trip.drinking"></i>
+                </td>
+                <td><i class="fas fa-fan"></i>Climatic</td>
+                <td>
+                    <i class="fas fa-check allow" *ngIf="trip.climatic"></i>
+                    <i class="fas fa-times-circle not-allow" *ngIf="!trip.climatic"></i>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>

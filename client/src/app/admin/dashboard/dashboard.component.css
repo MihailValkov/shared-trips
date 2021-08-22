@@ -1,0 +1,213 @@
+.dashboard {
+    margin-left: 280px;
+    padding: 15px;
+}
+.dash-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.user-logger {
+    margin-top: 0;
+    font-size: 12px;
+    padding: 10px;
+    width: 28%;
+    border-radius: .25rem!important;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0.5px 0.5px 3px;
+    color: #999;
+}
+
+.statistics {
+    width: 40%;
+}
+
+.logger-header {
+    list-style: none;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.logger-header i>span, .popular i>span, .expensive i>span {
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+.logger-header>h2 {
+    display: inline-block;
+    font-size: 15px;
+    margin: 0;
+    padding: 5px;
+    color: #818896;
+}
+
+.logger-users:hover {
+    background: rgba(146, 145, 145, 0.3);
+}
+
+.logger-users {
+    color: #b8bfce;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #3A3F48;
+}
+
+.logger-users i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.logger-users i:hover {
+    color: #d9534f;
+    cursor: pointer;
+}
+
+.logger-user {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.logger-user-img {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    max-width: 500px;
+    transition: all .2s ease-in-out;
+}
+
+.remove:before, .update:before, .create:before, .join:before, .leave:before {
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-top: 20px;
+    vertical-align: middle;
+    font-weight: 900;
+    z-index: 9;
+    position: absolute;
+    font-size: 1.2em;
+}
+
+.remove:before {
+    content: "\f2ed";
+    color: rgb(189, 70, 70);
+}
+
+.update:before {
+    content: "\f044";
+    color: rgb(55, 187, 84);
+}
+
+.create:before {
+    content: "\f0fe";
+    color: rgb(214, 163, 67);
+}
+
+.join:before {
+    content: "\f2f6";
+    color: rgb(74, 201, 84);
+}
+
+.leave:before {
+    content: "\f2f5";
+    color: rgb(216, 119, 40);
+    transform: rotateY(180deg);
+}
+
+.user>p {
+    padding-right: 20px;
+    margin: 0;
+}
+
+.logger-username {
+    font-weight: 700;
+}
+
+.top-destinations {
+    padding: 5px;
+    padding-bottom: 15px;
+    margin-bottom: 1rem;
+    border-radius: .25rem!important;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0.5px 0.5px 3px;
+    color: #999
+}
+
+.top-destinations h2 {
+    display: inline-block;
+    font-size: 15px;
+    margin: 0;
+    padding: 5px;
+    color: #818896;
+}
+
+.top-destinations i {
+    padding: 5px;
+}
+
+app-statistic {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    align-items: stretch;
+}
+
+.popular {
+    flex-basis: 40%;
+}
+
+.expensive {
+    flex-basis: 50%;
+}
+
+.loading-image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.loading-image {
+    background-image: url('https://i2.wp.com/www.rankred.com/wp-content/uploads/2017/06/Simple-loader.gif?resize=650%2C174');
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media (max-width: 768px) {
+    .dash-container {
+        flex-direction: column;
+    }
+    .dashboard {
+        margin-left: 40px;
+    }
+    .dashboard.max {
+        margin-left: 0;
+    }
+    .statistics {
+        width: 100%;
+        word-break: break-all;
+    }
+    .user-logger {
+        width: 100%;
+    }
+    .logger-header i>span, .popular i>span, .expensive i>span {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1300px;
+    }
+}

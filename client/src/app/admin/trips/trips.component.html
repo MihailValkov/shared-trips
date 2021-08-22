@@ -1,0 +1,63 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<section class="trips" [class.max]="!(isActive$|async)">
+    <app-nav title="Trips"></app-nav>
+    <div>
+        <div class="newest-members">
+            <div class="notifications">
+                <div class="notify-header">
+                    <h2><i class="fas fa-route"><span>Trips</span></i></h2>
+                    <span>
+                        <input type="text" placeholder="Search trip..." name="search">
+                        <span><i class="fas fa-search"></i></span>
+                    </span>
+                    <div class="action-holder"><i class="far fas fa-sort-up">hide</i></div>
+                </div>
+                <div id="show-hide" class="notify-box" *ngIf="(page$ | async ) as page">
+                    <app-loader class="main-view" *ngIf="(isLoading$|async)"></app-loader>
+                    <table class="customers" *ngIf="!(isLoading$|async)">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Creator</th>
+                                <th>Destination</th>
+                                <th>Seats</th>
+                                <th>Price</th>
+                                <th>Car Brand</th>
+                                <th>Date and Time</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let trip of (trips$|async); index as i;">
+                                <td>{{((page * limit) - limit)+i+1}}</td>
+                                <td>{{trip.creator.email}}</td>
+                                <td>{{trip.startPoint}} - {{trip.endPoint}}</td>
+                                <td>{{trip.seats}}</td>
+                                <td>{{trip.price}}</td>
+                                <td>{{trip.carBrand}}</td>
+                                <td>
+                                    <p>{{trip.date}}</p>
+                                    <p>{{trip.time}}</p>
+                                </td>
+                                <td>
+                                    <p>{{trip.createdAt.split(',')[0]}}</p>
+                                    <p>{{trip.createdAt.split(',')[1]}}</p>
+                                </td>
+                                <td *ngIf="count$|async as count">
+                                    <a class="actions-edit" title="Edit Trip" [routerLink]="['/trip/edit/',trip._id]"><i
+                                            class="fas fa-edit"></i></a>
+                                    <button class="actions-remove" title="Delete Trip"
+                                        (click)="deleteHandler(trip._id ,count )"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <app-pagination class="admin" [limit]="limit" [baseUrl]="'/admin/panel/trips'"
+                    [count]="(count$|async) || 0" [page]="(page$|async) || 1"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

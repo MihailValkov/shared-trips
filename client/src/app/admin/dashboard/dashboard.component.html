@@ -1,0 +1,57 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+<app-loader *ngIf="(isLoading$|async)"></app-loader>
+
+<section class="dashboard" [class.max]="!(isActive$|async)">
+    <app-nav title="Dashboard"></app-nav>
+    <section class="content" *ngIf="!(isLoading$|async)">
+        <div class="dash-container">
+            <ul class="user-logger">
+                <li class="logger-header">
+                    <h2><i class="fas fa-chart-line"> <span>User Activity</span></i></h2>
+                </li>
+                <li #li *ngFor="let log of (logs$|async)?.member" class="logger-users">
+                    <div class="logger-user" [ngClass]="log.action">
+                        <img class="logger-user-img" [src]="log.avatarImg" alt="user-img">
+                        <div class="user">
+                            <p> <span class="logger-username">{{log.email}}</span></p>
+                            <p>{{log.message}}</p>
+                            <p>at {{log.time | time}}</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-times" (click)="closeAction(li)"></i>
+                </li>
+            </ul>
+            <ul class="user-logger">
+                <li class="logger-header">
+                    <h2><i class="fas fa-chart-line"> <span>Admin Activity</span></i></h2>
+                </li>
+                <li #li *ngFor="let log of (logs$|async)?.admin" class="logger-users">
+                    <div class="logger-user" [ngClass]="log.action">
+                        <img class="logger-user-img" [src]="log.avatarImg" alt="user-img">
+                        <div class="user">
+                            <p> <span class="logger-username">{{log.email}}</span></p>
+                            <p>{{log.message}}</p>
+                            <p>at {{log.time | time}}</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-times" (click)="closeAction(li)"></i>
+                </li>
+            </ul>
+            <section class="statistics">
+                <div class="destinations">
+                    <div class="top-destinations expensive">
+                        <h2>
+                            <i class="fas fa-hand-holding-usd">
+                                <span>Top 10 Expensive Destinations</span>
+                            </i>
+                        </h2>
+                        <app-table [headers]="mostExpensiveDestinationHeaders"
+                            [expensiveTrips]="(expensiveTrips$ | async)||[]">
+                        </app-table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </section>
+</section>

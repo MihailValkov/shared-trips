@@ -1,0 +1,148 @@
+#register-page {
+    padding: 20px;
+}
+
+.register-page {
+    background: rgb(102 94 94 / 50%);
+    width: 70%;
+    padding-bottom: 1rem!important;
+    min-height: 525px;
+}
+
+label, .container>h1 {
+    color: white;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.register-page>h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b3a0a0;
+}
+
+.register {
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+}
+
+.container form {
+    text-align: center;
+}
+
+.register input {
+    text-align: center;
+}
+
+input.form-control-2, textarea.form-control, input.form-control, textarea:disabled {
+    /* box-shadow: 0px -2px 20px -1px #f4c537, inset -14px -14px 30px -13px rgb(0 0 0 / 55%); */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc
+}
+
+input.invalid {
+    border: 1px solid #eb4b19;
+}
+
+.inline {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+textarea, input {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button:disabled {
+    background: rgba(0, 0, 0, 0.5);
+    cursor: not-allowed;
+}
+
+.form-group p {
+    color: #f8f9fa;
+    text-shadow: 1px 1px #007bff;
+    font-size: 20px;
+    font-style: italic;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.gender {
+    /* box-shadow: 0px -2px 20px -1px #f4c537, inset -14px -14px 30px -13px rgb(0 0 0 / 55%); */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: .25rem;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+}
+
+.gender>input {
+    margin-right: 5px;
+}
+
+.gender label:first-of-type {
+    margin-right: 60px;
+}
+
+.gender label:hover, .gender input:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .container {
+       width: 100%;
+    }
+    .container>div {
+        width: 100%;
+        margin-top:20px;
+    }
+}

@@ -1,0 +1,17 @@
+<table class="customers">
+    <thead>
+        <tr>
+            <th *ngFor="let head of headers">{{head}}</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="expensiveTrips.length">
+        <tr *ngFor="let trip of expensiveTrips; index as i">
+            <td>{{i+1}}</td>
+            <td>{{trip?.destination}}</td>
+            <td>{{trip?.creator}}</td>
+            <td>{{trip?.price}}</td>
+        </tr>
+    </tbody>
+
+
+</table>

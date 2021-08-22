@@ -1,0 +1,25 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<app-loader *ngIf="(isLoading$|async)"></app-loader>
+
+<section id="shared-trips-page">
+    <div class="container shared-trip-page" >
+        <header class="trip">
+            <h1>Welcome Sharetripers!</h1>
+            <p class="lead">Sharedtrip is the best way to road across the country.</p>
+            <p class="lead">Find yours Sharedtrip's buddies, when you share with us yours trip plans and let the
+                exploration begin!</p>
+        </header>
+    
+        <div *ngIf="(trips$|async)?.length">
+            <app-trip-list class="row text-center" [trips]="(trips$|async)||[]"></app-trip-list>
+            <app-pagination class="user" [limit]="4" [baseUrl]="'/trip/list'" [count]="(count$|async) || 0"
+                [page]="(page$|async) || 1"></app-pagination>
+        </div>
+    
+        <div class="no-trips" *ngIf="(trips$|async)?.length === 0">
+            <img src="https://www.stagweb.co.uk/img/activities/big/sexyhitchhiker1.jpg" />
+            <p class="lead">Hitchhiker time...</p>
+        </div>
+    </div>
+</section>

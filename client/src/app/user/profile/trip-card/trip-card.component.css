@@ -1,0 +1,52 @@
+:host {
+    width: 30%;
+}
+
+.trip-card {
+    text-align: center;
+    border: 1px solid #848181;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    min-height: 250px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.trip-card .buddies {
+    padding: 5px;
+    text-align: center;
+}
+
+.buddies h4 {
+    margin-bottom: 20px;
+}
+
+.buddies-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.buddies-list app-buddy-item {
+    width: 50%;
+}
+
+h4, p {
+    margin: 5px;
+}
+
+h4>p {
+    display: inline-block;
+}
+
+p>span {
+    color: #1771d6;
+}
+
+h2 {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    :host {
+        width: 90%;
+    }
+}

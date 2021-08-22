@@ -1,0 +1,60 @@
+<app-error [errorMessage]="(errorMessage$ | async)"></app-error>
+
+<app-loader *ngIf="(isLoading$|async)"></app-loader>
+
+<div class="profile-container info" *ngIf="!(isLoading$|async)">
+    <h2>Edit Profile</h2>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+        <div class="form-group profile-input">
+            <div class="inline">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control-2" id="username"
+                     [class.invalid]="validateField('username')">
+                <div class="error" *ngIf="validateField('username')">
+                    * Username should be at least 4 characters long!</div>
+            </div>
+
+            <div class="inline">
+                <label for="company">Company</label>
+                <input type="text" formControlName="company" class="form-control-2" id="company"
+                     [class.invalid]="validateField('company')">
+                <div class="error" *ngIf="validateField('company')">* Company should be at least 4 characters
+                    long!</div>
+            </div>
+        </div>
+        <div class="form-group profile-input">
+            <div class="inline">
+                <label for="profession">Profession</label>
+                <input type="text" formControlName="profession" class="form-control-2" id="profession"
+                     [class.invalid]="validateField('profession')">
+                <div class="error" *ngIf="validateField('profession')">
+                    * Profession should be at least 4 characters long!</div>
+            </div>
+
+            <div class="inline">
+                <label for="city">City</label>
+                <input type="text" formControlName="city" class="form-control-2" id="city"
+                   [class.invalid]="validateField('city')">
+                <div class="error" *ngIf="validateField('city')">* City should be at least 4 characters
+                    long!</div>
+            </div>
+        </div>
+        <div class="form-group profile-input">
+            <div class="inline">
+                <label for="password">New Password</label>
+                <input type="password" formControlName="password" class="form-control-2" id="password"
+                    placeholder="new password" [class.invalid]="validateField('password')">
+                <div class="error" *ngIf="validateField('password')">
+                    * New Password should be at least 4 characters long!</div>
+            </div>
+
+            <div class="inline">
+                <label for="repeatPassword">Confirm New Password</label>
+                <input type="password" formControlName="repeatPassword" class="form-control-2" id="repeatPassword"
+                placeholder="repeat password" [class.invalid]="validateField('repeatPassword')">
+                <div class="error" *ngIf="validateField('repeatPassword')">* Passwords don't match!</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    </form>
+</div>

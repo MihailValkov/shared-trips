@@ -1,0 +1,215 @@
+.profile {
+    position: relative;
+    height: 40vh;
+    min-height: 250px;
+    max-height: 350px;
+    z-index: 1;
+}
+
+.profile-container p>span {
+    color: #1771d6;
+}
+
+.profile-container p {
+    padding: 5px 20px;
+    margin: 0;
+}
+
+.profile-container {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px -2px 20px -1px #1488fa, inset -14px -14px 30px -13px rgb(0 0 0 / 55%);
+    margin: 30px;
+    padding-bottom: 20px;
+}
+
+.profile-container h2 {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.content {
+    display: flex;
+}
+
+.profile .edit-cover-photo {
+    position: absolute;
+    top: 0px;
+    color: white;
+    left: 35px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0px 1px 5px 0px #1488fa;
+    background: #151728;
+}
+
+.profile:hover>img {
+    opacity: 0.5;
+}
+
+.profile-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+}
+
+.profile:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(50px);
+    opacity: 0.7;
+}
+
+.profile-avatar {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    z-index: 1;
+    bottom: 0;
+    left: 24px;
+}
+
+.profile-avatar .edit-avatar-photo {
+    border-radius: 2px;
+    box-shadow: 0px 1px 5px 0px #1488fa;
+    background: #1b1d2e;
+    color: white;
+    position: absolute;
+    margin-bottom: 6px;
+    left: 35px;
+}
+
+.edit-avatar {
+    left: -20px;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit-avatar, .edit-cover {
+    color: white;
+}
+
+.edit-avatar>i, .edit-cover>i {
+    padding: 10px;
+}
+
+.edit-avatar>i:hover, .edit-cover>i:hover {
+    cursor: pointer;
+}
+
+.edit-cover {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #151728;
+    margin-bottom: 30px;
+}
+
+.profile-name {
+    margin-left: 6px;
+    margin-bottom: -3px;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
+    padding: 5px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #151728;
+    opacity: 0.8;
+}
+
+.profile-menu {
+    position: absolute;
+    bottom: 0;
+    padding-left: 335px;
+    background: #151728;
+    width: 100%;
+    display: flex;
+    border-radius: 0 0 4px 4px;
+}
+
+.profile-menu-link {
+    padding: 20px 16px;
+    color: #5c5e6e;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.profile-menu-link.active, .profile-menu-link:hover {
+    color: #fff;
+    background-color: #1b1d2e;
+    border-bottom: 3px solid #1488fa;
+    z-index: 1;
+}
+
+@media screen and (max-width: 700px) {
+    .profile-avatar {
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .edit-avatar {
+        position: initial;
+        margin:0;
+        padding: 0;
+    }
+    .profile-img {
+        height: 100px;
+        width: 100px;
+        margin-bottom: 0;
+    }
+    .profile-name {
+        margin: 5px 0;
+    }
+    .profile-menu {
+        padding-left: 0;
+        width: 100%;
+        overflow: auto;
+        justify-content: center;
+        z-index: 5;
+    }
+    .profile-menu-link {
+        padding: 16px;
+        font-size: 15px;
+        transition: 0s;
+    }
+    .profile-avatar .edit-avatar-photo{
+        position: relative;
+        left: 0;
+    }
+    .profile .edit-cover-photo {
+        top:3px;
+    }
+    .content {
+        display: block;
+    }
+}

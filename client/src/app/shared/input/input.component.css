@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+/* ------------------------------ Upload button styling ------------------------------ */
+
+.upload {
+    --color-black-softest: #485461;
+    /* softer black */
+    --color-black-soft: #363f48;
+    /* softer black */
+    --color-black-hard: #2d353c;
+    /* harder black */
+    --color-black-hardest: #21282e;
+    /* hardest black */
+    --color-green-light: #65cca9;
+    /* light green */
+    --color-green: #29b586;
+    /* medium green */
+    --ease-in-out-quartic: cubic-bezier(0.645, 0.045, 0.355, 1);
+    position: relative;
+    background: #485461;
+    border-radius: 0.25rem;
+    box-shadow: 0 1.7px 1.4px rgba(0, 0, 0, 0.02), 0 4px 3.3px rgba(0, 0, 0, 0.028), 0 7.5px 6.3px rgba(0, 0, 0, 0.035), 0 13.4px 11.2px rgba(0, 0, 0, 0.042), 0 25.1px 20.9px rgba(0, 0, 0, 0.05), 0 60px 50px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transform: rotate(0);
+    width: 95%;
+    height: calc(1.5em + 0.75rem);
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #b3a0a0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+:host(.upload-image .drop-area) {
+    width: 100%;
+    background: #151728;
+    border: none;
+}
+:host(.upload-image .drop-text) {
+    opacity: 1;
+}
+
+:host(.user-input .drop-area) {
+    width: 100%;
+}
+
+.upload-info {
+    display: flex;
+    align-items: center;
+    fill: #fff;
+    color: #fff;
+}
+
+.upload-info {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.upload-filename {
+    transition: opacity 300ms ease;
+    margin: auto;
+    word-break: break-all;
+}
+
+.upload-filename.inactive {
+    opacity: 0.6;
+}
+
+.upload-button {
+    position: relative;
+    margin: 0;
+    font-size: 100%;
+    font-family: inherit;
+    background: none;
+    border: none;
+    border-radius: inherit;
+    outline: none;
+}
+
+.upload-button-text {
+    color: white;
+    border-radius: inherit;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 200ms ease, box-shadow 300ms ease;
+}
+
+.upload-button-text i:hover {
+    color: var(--color-green-light);
+}
+.upload-button-text i {
+    margin-left: 5px;
+}
+
+.upload-button-text.inactive {
+    background-color: rgba(255, 255, 255, 0.38);
+    cursor: not-allowed;
+}
+
+.upload-hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    transform: translateY(100%);
+}
+
+.upload-progress {
+    position: absolute;
+    top: 90%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: linear-gradient(270deg, rgba(135, 224, 194, 1) 0%, rgba(101, 204, 169, 1) 50%, rgba(38, 176, 130, 1) 100%);
+    transform-origin: left;
+}
+
+.upload.uploading .upload-button-text {
+    animation: fade-up-out 0.4s 0.4s forwards, button-pulse 500ms forwards;
+}
+
+.upload.uploading .upload-info>* {
+    animation: fade-up-out 0.4s 0.4s forwards;
+}
+
+.upload.uploading .upload-hint {
+    animation: fade-up-in 0.4s 0.8s forwards;
+}
+
+.upload.uploading .upload-progress {
+    animation: load-right 2s 1s var(--ease-in-out-quartic) forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes button-pulse {
+    from {
+        box-shadow: 0 0 0 0 var(--color-green-light);
+    }
+    to {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes fade-up-out {
+    to {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+}
+
+@keyframes fade-up-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes load-right {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+    cursor: pointer;
+}
+
+.drop-area.droppable {
+    border: 1px dashed rgba(255, 255, 255, 0.6);
+}
+
+.drop-area.highlight {
+    border: 1px dashed var(--color-green);
+}
+.drop-area {
+    width: 95%;
+}
+
+.success {
+    color: #29b586;
+}
+
+.upload-error {
+    padding-left: 10px;
+    color:crimson;
+}
+
+@media (max-width: 700px) {
+    .upload {
+        width: 100%;
+    }
+}

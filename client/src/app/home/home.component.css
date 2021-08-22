@@ -1,0 +1,32 @@
+#home-page {
+    padding: 20px;
+}
+.home {
+    background: rgb(102 94 94 / 50%);
+    width: 70%;
+    padding-bottom: 1rem!important;
+    min-height: 525px;
+}
+.home h1 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b3a0a0;
+}
+.home h1, .home p {
+    text-align: center;
+    color: white;
+}
+.home p.lead {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+    .container>div {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

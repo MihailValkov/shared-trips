@@ -1,0 +1,49 @@
+:host {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.profile-container p>span {
+    color: #1771d6;
+}
+
+.profile-container p {
+    padding: 5px 20px;
+    margin: 0;
+}
+
+.profile-container {
+    color: white;
+    width: 20%;
+    margin: 30px;
+    background: rgb(102 94 94 / 50%);
+}
+.profile-container.info {
+    min-height: 440px;
+    width: 100%;
+}
+.profile-container h2 {
+    text-align: center;
+    padding-top: 10px;
+    margin:auto;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    width: 96%;
+    border-bottom: 1px solid #b3a0a0;
+}
+
+.info h4,.info p {
+    text-align: center;
+    margin-bottom: 0;
+}
+.trips {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 700px) {
+    .profile-container{
+        margin-top: 0;
+    }
+}
