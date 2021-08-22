@@ -24,12 +24,6 @@ Clone this repository and install dependencies
 ```
 **NOTE: Don't forget to read the documentation about the CUSTOM API, you can find it [here](https://github.com/MihailValkov/shared-trips/blob/main/server/readMe.md).**
 
-## Application Structure
-
-### Public part (accessible without authentication)
-### Private part (available for registered users)
-### Admin part (accessible for admin users)
-
 ## Application Overview
 The application allows visitors to browse through the shared trips catalog. Users may register with an `email`, `password` and `gender` which allows them to `create` their own trips and should be able to `join` trip (if the current user is not the trip creator and if seats available). Trip `authors` can also edit or delete their own publications at any time (admin users too). Each logged-in `user` should be able to view their own profile by clicking `[Profile]` in the navigation bar. 
 This page is containing detailed information about the user, their own trips, and the opportunity to edit their own profile information.
@@ -53,6 +47,12 @@ This page is containing detailed information about the user, their own trips, an
 | Admin Profile   | ❌     | ❌              | ✅              |
 | Admin Users     | ❌     | ❌              | ✅              |
 | Admin Trips     | ❌     | ❌              | ✅              |
+
+## Application Structure
+
+### Public part (accessible without authentication)
+### Private part (available for registered users)
+### Admin part (accessible for admin users)
 
 ## Pages:
 
@@ -79,6 +79,11 @@ Catalog page
 Detail page
 ![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Detail-guest.png)
 
+Not Found page
+![Not Found Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Not-found.png)
+
+
+
 ### Private Pages (logged in users):
 
 Create page
@@ -102,7 +107,7 @@ Profile page (my trips)
 Profile page (edit profile)
 ![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Profile-edit.png)
 
-### Private Pages (admin users):
+### Admin Pages:
 
 Dashboard page 
 ![Dashboard Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Admin-dashboard.png)
