@@ -59,64 +59,64 @@ This page is containing detailed information about the user, their own trips, an
 ### Public Pages (logged out users):
 
 Home page
-![Home Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Home.png)
+![Home Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Home.png)
 
 Login page
-![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Login.png)
+![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Login.png)
 
 Login page - Error messages
-![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Login-error.png)
+![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Login-error.png)
 
 Register page
-![Register Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Register.png)
+![Register Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Register.png)
 
 Register page - Error messages
-![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Register-error.png)
+![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Register-error.png)
 
 Catalog page
-![Catalog Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Catalog.png)
+![Catalog Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Catalog.png)
 
 Detail page
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-guest.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Detail-guest.png)
 
 ### Private Pages (logged in users):
 
 Create page
-![Create Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Create.png)
+![Create Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Create.png)
 
 Detail page (author)
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-author.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Detail-author.png)
 
 Detail page (with available seats)
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-available-seats.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Detail-user-available-seats.png)
 
 Detail page (already joined)
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-joined.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Detail-user-joined.png)
 
 Detail page (no seats available)
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-no-available-seats.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Detail-user-no-available-seats.png)
 
 Profile page (my trips)
-![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Profile-trips.png)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Profile-trips.png)
 
 Profile page (edit profile)
-![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Profile-edit.png)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Profile-edit.png)
 
 ### Private Pages (admin users):
 
 Dashboard page 
-![Dashboard Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-dashboard.png)
+![Dashboard Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Admin-dashboard.png)
 
 Profile page (own profile)
-![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-profile.png)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Admin-profile.png)
 
 Profile page (user profile)
-![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-user-profile.png)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Admin-user-profile.png)
 
 Users page 
-![Users Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-users.png)
+![Users Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Admin-users.png)
 
 Trips page 
-![Trips Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-trips.png)
+![Trips Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/pages/Admin-trips.png)
 
 
