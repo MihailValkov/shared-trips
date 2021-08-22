@@ -62,6 +62,9 @@ Detail page
 
 ### Private Pages (logged in users):
 
+Create page
+![Create Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Create.png)
+
 Detail page (author)
 ![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-author.png)
 
@@ -73,6 +76,14 @@ Detail page (already joined)
 
 Detail page (no seats available)
 ![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-no-available-seats.png)
+
+Profile page (my trips)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Profile-trips.png)
+
+Profile page (edit profile)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Profile-edit.png)
+
+### Private Pages (admin users):
 
 
 
