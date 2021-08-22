@@ -13,7 +13,10 @@
 ## Getting Started
 Clone this repository and install dependencies
 ```
+> git clone https://github.com/MihailValkov/shared-trips.git
+> cd server
 > npm install
+> create '.env' file.
 > npm start
 ```
 ### Create '.env' file in the main directory and populate the following data:
