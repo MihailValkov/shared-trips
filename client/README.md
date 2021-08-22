@@ -58,12 +58,12 @@ Catalog page
 ![Catalog Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Catalog.png)
 
 Detail page
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-guest.png.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-guest.png)
 
 ### Private Pages (logged in users):
 
 Detail page (author)
-![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-author.png.png)
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-author.png)
 
 Detail page (with available seats)
 ![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail-user-available-seats.png)
