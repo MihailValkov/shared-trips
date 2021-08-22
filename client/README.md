@@ -40,6 +40,26 @@ This page is containing detailed information about the user, their created trips
 ### Public Pages:
 
 Home page
+![Home Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Home.png)
 
-![Home Page]()
+Login page
+![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Login.png)
+
+Login page - Error messages
+![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Login-error.png)
+
+Register page
+![Register Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Register.png)
+
+Register page - Error messages
+![Login Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Register-error.png)
+
+Catalog page
+![Catalog Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Catalog.png)
+
+Detail page
+![Detail Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Detail.png)
+
+
+
 
