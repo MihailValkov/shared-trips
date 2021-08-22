@@ -1,6 +1,6 @@
 # Custom Server
 
-## Libraries and tools used
+## 🛠 Libraries and tools used
 - [Express](https://expressjs.com/)
 - [Mongoose](https://mongoosejs.com/)
 - [JsonWebToken](https://github.com/auth0/node-jsonwebtoken)

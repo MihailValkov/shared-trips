@@ -1,6 +1,6 @@
 # Angular Application - Shared Trips
 
-## Libraries and tools used
+## 🛠 Libraries and tools used
 - [Angular](https://angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
@@ -30,10 +30,29 @@ Clone this repository and install dependencies
 ### Private part (available for registered users)
 ### Admin part (accessible for admin users)
 
-
 ## Application Overview
-The application allows visitors to browse through the shared trips catalog. Users may register with an `email`, `password` and `gender` which allows them to `create` their own trips and should be able to `join` trip (if the current user is not the trip creator and if seats available). Trip `authors` can also edit or delete their own publications at any time (admin users too). Each logged-in `user` should be able to view his/her own profile by clicking `[Profile]` in the navigation bar. 
-This page is containing detailed information about the user, their created trips, and the opportunity to edit his/her own profile information.
+The application allows visitors to browse through the shared trips catalog. Users may register with an `email`, `password` and `gender` which allows them to `create` their own trips and should be able to `join` trip (if the current user is not the trip creator and if seats available). Trip `authors` can also edit or delete their own publications at any time (admin users too). Each logged-in `user` should be able to view their own profile by clicking `[Profile]` in the navigation bar. 
+This page is containing detailed information about the user, their own trips, and the opportunity to edit their own profile information.
+
+# Permissions:
+
+| **Permissions** | Guest   | Logged in User  | Admin           |
+| --------------- | -----   | --------------  | --------------  |
+| Login/ Register | ✅     | ❌              | ❌              |
+| Home page       | ✅     | ✅              | ✅              |
+| Catalog         | ✅     | ✅              | ✅              |
+| Details         | ✅     | ✅              | ✅              |
+| Profile         | ❌     | ✅              | ✅              |
+| Edit Trip       | ❌     | ✅ (author)     | ✅              |
+| Edit Trip       | ❌     | ❌ (not-author) | ✅              |
+| Delete Trip     | ❌     | ✅ (author)     | ✅              |
+| Delete Trip     | ❌     | ❌ (not-author) | ✅              |
+| Join Trip       | ❌     | ❌ (author)     | ❌ (author)     |
+| Join Trip       | ❌     | ✅ (not-author) | ✅ (not-author) |
+| Admin Dashboard | ❌     | ❌              | ✅              |
+| Admin Profile   | ❌     | ❌              | ✅              |
+| Admin Users     | ❌     | ❌              | ✅              |
+| Admin Trips     | ❌     | ❌              | ✅              |
 
 ## Pages:
 
@@ -85,6 +104,19 @@ Profile page (edit profile)
 
 ### Private Pages (admin users):
 
+Dashboard page 
+![Dashboard Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-dashboard.png)
 
+Profile page (own profile)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-profile.png)
+
+Profile page (user profile)
+![Profile Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-user-profile.png)
+
+Users page 
+![Users Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-users.png)
+
+Trips page 
+![Trips Page](https://raw.githubusercontent.com/MihailValkov/shared-trips/main/images/Admin-trips.png)
 
 
