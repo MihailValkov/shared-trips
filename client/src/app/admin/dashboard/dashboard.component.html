@@ -1,5 +1,5 @@
 <app-error [errorMessage]="(errorMessage$ | async)"></app-error>
-<app-loader *ngIf="(isLoading$|async)"></app-loader>
+<app-loader class="admin" *ngIf="(isLoading$|async)"></app-loader>
 
 <section class="dashboard" [class.max]="!(isActive$|async)">
     <app-nav title="Dashboard"></app-nav>

@@ -1,7 +1,14 @@
-:host(.main-view .lds-spinner) {
+:host(.admin.table .lds-spinner) {
   position: absolute;
   top: 25%;
   left: 48%;
+  bottom: 50%;
+  right: 50%;
+}
+:host(.admin .lds-spinner) {
+  position: absolute;
+  top: 35%;
+  left: 55%;
   bottom: 50%;
   right: 50%;
 }

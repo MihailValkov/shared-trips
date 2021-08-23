@@ -2,8 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { switchMap, tap } from 'rxjs/operators';
 import { updateUser } from 'src/app/+store/actions';
-import { IUser } from 'src/app/interfaces/user';
 import { validatorEmail, validatorRepass } from 'src/app/shared/validators';
 import { IAdminModuleState } from '../+store';
 import { adminProfileClearUser, adminProfileLoading, adminProfileSetErrorMessage, adminProfileSetUser, adminProfileSetUserId, adminProfileUploadAvatarImageSetErrorMessage } from '../+store/actions';
@@ -14,7 +14,7 @@ import { AdminService } from '../admin.service';
   templateUrl: './user-profile-edit.component.html',
   styleUrls: ['./user-profile-edit.component.css', './user-profile.media.css']
 })
-export class UserProfileEditComponent implements OnDestroy{
+export class UserProfileEditComponent implements OnDestroy {
   isActive$ = this.store.select(state => state.admin.menu.isActive);
   isLoading$ = this.store.select(state => state.admin.profile.isLoading);
   errorMessage$ = this.store.select(state => state.admin.profile.errorMessage);
@@ -30,7 +30,21 @@ export class UserProfileEditComponent implements OnDestroy{
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {
-    this.store.dispatch(adminProfileSetUserId({ id: this.activatedRoute.snapshot.params.userId }))
+    this.activatedRoute.params
+      .pipe(
+        tap(({ userId }) => this.store.dispatch(adminProfileSetUserId({ id: userId }))),
+        switchMap(({ userId }) => this.adminService.loadUser(userId))
+      ).subscribe(
+        user => {
+          this.store.dispatch(adminProfileLoading({ isLoading: false }));
+          this.store.dispatch(adminProfileSetUser({ user }));
+          this.form.patchValue(user);
+        },
+        error => {
+          this.store.dispatch(adminProfileLoading({ isLoading: false }));
+          this.store.dispatch(adminProfileSetErrorMessage({ message: error.error.message }));
+        }
+      )
 
     this.form = this.fb.group(
       {
@@ -48,18 +62,6 @@ export class UserProfileEditComponent implements OnDestroy{
       }
     );
 
-    this.adminService.loadUser(this.activatedRoute.snapshot.params.userId).subscribe(
-      user => {
-        this.store.dispatch(adminProfileLoading({ isLoading: false }));
-        this.store.dispatch(adminProfileSetUser({ user }));
-        this.form.patchValue(user);
-      },
-      error => {
-        this.store.dispatch(adminProfileLoading({ isLoading: false }));
-        this.store.dispatch(adminProfileSetErrorMessage({ message: error.error.message }));
-      }
-    )
-
   }
   validateField(name: string) {
     return this.form.get(name)?.touched && this.form.get(name)?.errors
@@ -72,37 +74,29 @@ export class UserProfileEditComponent implements OnDestroy{
       .subscribe(
         user => {
           this.store.dispatch(adminProfileLoading({ isLoading: false }));
-          if (user._id == adminId) {
-            this.store.dispatch(updateUser({ user }));
-          }
+          if (user._id == adminId) { this.store.dispatch(updateUser({ user })); }
         },
-        error => {
-          this.store.dispatch(adminProfileSetErrorMessage({ message: error.error.message }));
-        }
+        error => this.store.dispatch(adminProfileSetErrorMessage({ message: error.error.message }))
       );
   }
 
-  getImageUrl(data: { imageUrl: string, message: string }, adminId:string): void {
-    if (data?.message) { 
+  getImageUrl(data: { imageUrl: string, message: string }, adminId: string): void {
+    if (data?.message) {
       this.store.dispatch(adminProfileUploadAvatarImageSetErrorMessage({ message: data?.message }));
       return;
-     }
-    
-    this.adminService.updateUserAvatar(this.activatedRoute.snapshot.params.userId,data.imageUrl)
-    .subscribe(
-      user => {
-        if (user._id == adminId) {
-          this.store.dispatch(updateUser({ user }));
-        } 
+    }
+
+    this.adminService.updateUserAvatar(this.activatedRoute.snapshot.params.userId, data.imageUrl)
+      .subscribe(
+        user => {
+          if (user._id == adminId) { this.store.dispatch(updateUser({ user })); }
           this.store.dispatch(adminProfileSetUser({ user }));
-      },
-      error => this.store.dispatch(adminProfileSetErrorMessage({ message: error.error.message }))
-    )
-
+        },
+        error => this.store.dispatch(adminProfileSetErrorMessage({ message: error.error.message }))
+      )
   }
-  
 
-  ngOnDestroy() :void {
+  ngOnDestroy(): void {
     this.store.dispatch(adminProfileClearUser());
   }
 }

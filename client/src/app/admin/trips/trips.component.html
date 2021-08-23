@@ -14,7 +14,7 @@
                     <div class="action-holder"><i class="far fas fa-sort-up">hide</i></div>
                 </div>
                 <div id="show-hide" class="notify-box" *ngIf="(page$ | async ) as page">
-                    <app-loader class="main-view" *ngIf="(isLoading$|async)"></app-loader>
+                    <app-loader class="admin table" *ngIf="(isLoading$|async)"></app-loader>
                     <table class="customers" *ngIf="!(isLoading$|async)">
                         <thead>
                             <tr>
