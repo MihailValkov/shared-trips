@@ -237,7 +237,9 @@ a
 .fa:before, .fas:before .far:before {
     padding-right: 10px;
 }
-
+.customers td.no-results {
+    font-size: 18px;
+}
 table {
     overflow-x: auto;
     white-space: nowrap

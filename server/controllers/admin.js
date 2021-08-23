@@ -78,12 +78,14 @@ module.exports = {
             }
         },
         async getTrips(req, res, next) {
+            const regex = new RegExp(req.query.search || '', 'i');
             const page = parseInt(req.query.page);
             const limit = parseInt(req.query.limit);
             const skipIndex = (page - 1) * limit;
+            const searchParams = { $or: [{ startPoint: regex }, { endPoint: regex }, { carBrand: regex }] };
             try {
-                const count = await tripModel.countDocuments({});
-                const trips = await tripModel.find().sort({ _id: 1 }).limit(limit).skip(skipIndex).populate('creator').lean();
+                const count = req.query.search ? await tripModel.countDocuments(searchParams) : await tripModel.countDocuments({});
+                const trips = await tripModel.find(searchParams).sort({ _id: 1 }).limit(limit).skip(skipIndex).populate('creator').lean();
                 res.status(200).json({ trips, count });
             } catch (error) {
                 return res.status(404).json({ message: 'Not Found 404' });

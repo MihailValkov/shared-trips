@@ -1,7 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import {switchMap,  tap } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
 import { IAdminModuleState } from '../+store';
 import { adminTripLoading, adminTripClearTrips, adminTripSetCurrentPage, adminTripSetErrorMessage, adminTripSetTrips, adminTripSetTripsCount } from '../+store/actions';
 import { AdminService } from '../admin.service';
@@ -19,11 +20,11 @@ export class TripsComponent implements OnDestroy {
   page$ = this.store.select(state => state.admin.trip.page);
   trips$ = this.adminService.trips$;
   limit = 5;
+
   constructor(
     private adminService: AdminService,
     private store: Store<IAdminModuleState>,
-    private activatedRoute: ActivatedRoute,
-    private router: Router
+    private activatedRoute: ActivatedRoute
   ) {
     this.activatedRoute.queryParams
       .pipe(
@@ -42,14 +43,26 @@ export class TripsComponent implements OnDestroy {
       )
   }
 
+  searchHandler(inputEl: HTMLInputElement) {
+    this.store.dispatch(adminTripLoading({ isLoading: true }));
+    fromEvent(inputEl, 'input')
+      .pipe(
+        map((e) => (e.target as HTMLInputElement).value),
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(s => this.adminService.loadTrips({ page: 1, limit: 5, search: s })),
+        debounceTime(100)
+      ).subscribe(() => this.store.dispatch(adminTripLoading({ isLoading: false })));
+  }
+
   deleteHandler(id: string, count: number): void {
     if (confirm('Are you sure?')) {
       this.store.dispatch(adminTripLoading({ isLoading: true }));
       this.adminService.deleteTrip(id).pipe(
         switchMap(() => this.adminService.loadStatistics()),
         switchMap(() => this.page$),
-        switchMap(page =>  {
-          page = page > Math.ceil((count-1) / this.limit) ? --page : page;
+        switchMap(page => {
+          page = page > Math.ceil((count - 1) / this.limit) ? --page : page;
           this.store.dispatch(adminTripSetCurrentPage({ page: +page }))
           return this.adminService.loadTrips({ page: +page, limit: this.limit })
         })
