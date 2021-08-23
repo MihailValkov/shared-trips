@@ -1,6 +1,6 @@
 <app-error [errorMessage]="(errorMessage$ | async)"></app-error>
 
-<app-loader *ngIf="(isLoading$|async)"></app-loader>
+<app-loader class="user table" *ngIf="(isLoading$|async)"></app-loader>
 
 <div class="profile-container info" *ngIf="!(isLoading$|async)">
     <h2>Edit Profile</h2>

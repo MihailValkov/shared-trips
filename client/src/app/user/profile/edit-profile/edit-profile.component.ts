@@ -39,7 +39,7 @@ export class EditProfileComponent implements OnDestroy {
         validator: validatorRepass('password', 'repeatPassword')
       }
     );
-    this.subscription = this.user$.subscribe(user => this.form.patchValue(user || {}))
+    this.subscription = this.user$.subscribe(user => this.form.patchValue(user || {}));
   }
 
   validateField(name: string) {

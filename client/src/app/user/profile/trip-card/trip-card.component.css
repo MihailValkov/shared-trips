@@ -7,7 +7,7 @@
     border: 1px solid #848181;
     margin-bottom: 20px;
     padding-top: 10px;
-    min-height: 250px;
+    min-height: 260px;
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -22,11 +22,15 @@
 
 .buddies-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin: auto;
+}
+.buddies-list p {
+    margin: auto;
 }
 .buddies-list app-buddy-item {
-    width: 50%;
+    width: 30%;
 }
 
 h4, p {
@@ -48,5 +52,8 @@ h2 {
 @media (max-width: 700px) {
     :host {
         width: 90%;
+    }
+    .buddies-list app-buddy-item {
+        width: 50%;
     }
 }

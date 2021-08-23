@@ -5,6 +5,13 @@
   bottom: 50%;
   right: 50%;
 }
+:host(.user.table .lds-spinner) {
+  position: absolute;
+  top: 40%;
+  left: 48%;
+  bottom: 50%;
+  right: 50%;
+}
 :host(.admin .lds-spinner) {
   position: absolute;
   top: 35%;
