@@ -1,6 +1,5 @@
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
-import { IsOwnerGuard } from './core/guards/is-owner.guard';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -38,4 +37,4 @@ const routes: Routes = [
   }
 ];
 
-export const AppRoutingModule = RouterModule.forRoot(routes);
+export const AppRoutingModule = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
