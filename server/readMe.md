@@ -784,7 +784,7 @@ Content:
 
 ## Expensive Trips
 
-Send an authorized `GET` request to `/admin/expensive-trips`. The service will respond with an object `trips` (an array of objects).
+Send an authorized `GET` request to `/admin/expensive-trips`. The service will respond with an object `trips` (an array of a maximum of 10 objects, which are sorted by price from highest to lowest).
 
 ### Success Response:
 

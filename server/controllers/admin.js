@@ -29,7 +29,7 @@ module.exports = {
         },
         async expensiveTrips(req, res, next) {
             try {
-                const trips = await tripModel.find({}).sort({ price: 'desc' }).limit(5).populate('creator').lean();
+                const trips = await tripModel.find({}).sort({ price: 'desc' }).limit(10).populate('creator').lean();
                 const data = trips.reduce((a, b) => a.concat({ destination: `${b.startPoint} - ${b.endPoint}`, creator: b.creator.email, price: +b.price }), []);
                 res.status(200).json({ trips: data });
             } catch (error) {
