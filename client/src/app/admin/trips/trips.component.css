@@ -46,12 +46,12 @@ p {
 }
 
 .notify-header>span {
-    width: 50%;
+    width: 70%;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: 10px;
     display: flex;
 }
-
 .notify-header input , .notify-header select {
     background: transparent;
     outline: none;
@@ -65,7 +65,6 @@ p {
 
 .notify-header select {
     border-left: none;
-    width: 20%;
 }
 
 .notify-header select option {
@@ -297,12 +296,14 @@ table::-webkit-scrollbar-thumb {
     }
     .notify-header select {
         width: 35%;
-        ;
     }
-}
-
-@media (max-width: 1200px) {
     table {
         display: block;
     }
+}
+
+@media (max-width: 1140px) {
+table {
+    display: inline-block;
+}
 }

@@ -67,7 +67,6 @@ p {
 
 .notify-header select {
     border-left: none;
-    width: 20%;
 }
 
 .notify-header select option {
@@ -298,10 +297,13 @@ table::-webkit-scrollbar-thumb {
         width: 33%;
         ;
     }
-}
-
-@media (max-width: 1200px) {
     table {
         display: block;
+    }
+}
+
+@media (max-width: 1020px) {
+    table {
+        display: inline-block;
     }
 }
