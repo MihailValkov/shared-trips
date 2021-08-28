@@ -52,21 +52,19 @@ p {
     display: flex;
 }
 
-.notify-header input {
-    color: #ececee;
-    border: 1px solid #3A3F48;
-    border-right: none;
+.notify-header input , .notify-header select {
     background: transparent;
     outline: none;
+    color: white;
+    border: 1px solid #3A3F48;
+}
+.notify-header input {
+    border-right: none;
     width: 90%;
 }
 
 .notify-header select {
-    border: 1px solid #3A3F48;
     border-left: none;
-    background: transparent;
-    outline: none;
-    color: white;
     width: 20%;
 }
 
@@ -113,17 +111,6 @@ p {
     border-left: none;
 }
 
-.fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.far:before {
-    padding-right: 10px;
-}
-
 .notify-header {
     display: flex;
     justify-content: space-between;
@@ -159,14 +146,6 @@ p {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-}
-
-a .customers th {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: left;
-    color: white;
-    font-size: 13px;
 }
 
 .customers th {
@@ -213,22 +192,20 @@ a .customers th {
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
-
+.actions-edit , .actions-remove {
+    color: white;
+    border-radius: 2px;
+    opacity: 0.7;
+}
 .actions-edit {
     margin-right: 10px;
     padding: 5px;
     background: #5cb85c;
-    color: white;
-    border-radius: 2px;
-    opacity: 0.7;
 }
 
 .actions-remove {
     background: #d9534f;
     padding: 3px 8px;
-    color: white;
-    border-radius: 2px;
-    opacity: 0.7;
     border: none;
 }
 
@@ -246,6 +223,10 @@ a .customers th {
 
 .actions-remove:hover, .actions-edit:hover {
     opacity: 1;
+}
+
+.far:before {
+    padding-right: 10px;
 }
 
 .fa, .fas .far {
