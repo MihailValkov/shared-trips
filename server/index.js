@@ -13,5 +13,5 @@ db(dbConnection).then(() => {
     app.get('/*', (req, res, next) => res.sendFile(path.join(__dirname, '/static/index.html')));
 
     console.log('*** >>> Data base is connect <<< ***');
-    app.listen(port, () => console.log(`Server is listening on port: ${port}`));
+    app.listen(port, () => console.log(`Server is listening on port: ${port} -> http://localhost:${port}/`));
 }).catch((err) => console.log('!!!--- > Data base is not connect < --- !!!', err));

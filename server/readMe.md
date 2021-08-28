@@ -37,7 +37,7 @@ SECRET=
 AUTH_COOKIE=
 ROUNDS=
 ```
-Or you can navigate to file `config.js` in folder `config` and fulfill the following properties `port`, `dbConnection`,`cookie_name`, `jwt_secret` and `rounds`. Also, if you do not have a MongoDB Cloud account, you can set the value of the `dbConnection` variable `'mongodb://localhost:27017/{DB_NANE}'`
+Or you can navigate to file `config.js` in folder `config` and fulfill the following properties `port`, `dbConnection`,`cookie_name`, `jwt_secret` and `rounds`. Also, if you do not have a MongoDB Cloud account, you can set the value of the `dbConnection` variable `'mongodb://localhost:27017/{DB_NAME}'`
 
 ### Example
 ```

@@ -20,7 +20,8 @@ Clone this repository and install dependencies
 > ng build
 > cd ../server
 > npm install
-> node index.js
+> npm start
+> go to http://localhost:3000
 ```
 **NOTE: Don't forget to read the documentation about the CUSTOM API, you can find it [here](https://github.com/MihailValkov/shared-trips/blob/main/server/readMe.md).**
 

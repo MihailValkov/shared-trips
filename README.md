@@ -3,6 +3,11 @@
 
 - [Go to website](https://shared-travel.herokuapp.com)
 
+**Users, which can be used for immediate testing:**
+| Email          | Password   | Status  | 
+| -----          | ---------- | ------- |
+| user@abv.bg    | user       | Member  | 
+| admin@admin.bg | admin      | Admin  | 
 
 ## Documentation
 - [Client](https://github.com/MihailValkov/shared-trips/blob/main/client/README.md)
