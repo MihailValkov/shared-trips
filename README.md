@@ -7,7 +7,7 @@
 | Email          | Password   | Status  | 
 | -----          | ---------- | ------- |
 | user@abv.bg    | user       | Member  | 
-| admin@admin.bg | admin      | Admin  | 
+| admin@admin.bg | admin      | Admin   | 
 
 ## Documentation
 - [Client](https://github.com/MihailValkov/shared-trips/blob/main/client/README.md)

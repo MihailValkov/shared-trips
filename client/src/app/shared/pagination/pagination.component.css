@@ -6,6 +6,11 @@
 :host(.user .pages) {
     font-size: 1rem;
 }
+:host(.user.trips .pagination) {
+    position: absolute;
+    bottom:25px;
+}
+
 :host(.admin .pages) {
     font-size: 12px;
 }
