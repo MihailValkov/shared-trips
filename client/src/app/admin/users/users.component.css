@@ -65,10 +65,6 @@ p {
     width: 90%;
 }
 
-.notify-header select {
-    border-left: none;
-}
-
 .notify-header select option {
     color: black;
 }
