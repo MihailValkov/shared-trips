@@ -67,10 +67,12 @@ module.exports = {
         async getUsers(req, res, next) {
             const page = parseInt(req.query.page);
             const limit = parseInt(req.query.limit);
+            const regex = new RegExp(req.query.search || '', 'i');
+            const searchParams = { [req.query.filter]: regex };
             const skipIndex = (page - 1) * limit;
             try {
-                const count = await userModel.countDocuments({});
-                const users = await userModel.find().sort({ _id: 1 }).limit(limit).skip(skipIndex).lean();
+                const count = req.query.search ? await userModel.countDocuments(searchParams) : await userModel.countDocuments({});
+                const users = await userModel.find(req.query.filter ? searchParams : {}).sort({ _id: 1 }).limit(limit).skip(skipIndex).lean();
                 const data = users.map(removeUserPassword);
                 return res.status(200).json({ users: data, count });
             } catch (error) {
@@ -78,14 +80,14 @@ module.exports = {
             }
         },
         async getTrips(req, res, next) {
-            const regex = new RegExp(req.query.search || '', 'i');
             const page = parseInt(req.query.page);
             const limit = parseInt(req.query.limit);
+            const regex = new RegExp(req.query.search || '', 'i');
+            const searchParams = { [req.query.filter]: req.query.filter == 'seats' || req.query.filter == 'price' ? Number(req.query.search) : regex };
             const skipIndex = (page - 1) * limit;
-            const searchParams = { $or: [{ startPoint: regex }, { endPoint: regex }, { carBrand: regex }] };
             try {
                 const count = req.query.search ? await tripModel.countDocuments(searchParams) : await tripModel.countDocuments({});
-                const trips = await tripModel.find(searchParams).sort({ _id: 1 }).limit(limit).skip(skipIndex).populate('creator').lean();
+                const trips = await tripModel.find(req.query.filter ? searchParams : {}).sort({ _id: 1 }).limit(limit).skip(skipIndex).populate('creator').lean();
                 res.status(200).json({ trips, count });
             } catch (error) {
                 return res.status(404).json({ message: 'Not Found 404' });

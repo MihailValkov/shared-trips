@@ -5,14 +5,22 @@
     <div>
         <div class="newest-members">
             <div class="notifications">
-                <div class="notify-header">
+                <form class="notify-header" (submit)="searchHandler(inputElement,selectElement)">
                     <h2><i class="fas"><span>Users</span></i></h2>
                     <span>
-                        <input type="text" placeholder="Search user..." name="search">
-                        <span><i class="fas fa-search"></i></span>
+                        <input type="text" placeholder="Search trip..." name="search" #inputElement>
+                        <button><i class="fas fa-search"></i></button>
+                        <select name="criteria" #selectElement>
+                            <option value="username">Username</option>
+                            <option value="email">Email</option>
+                            <option value="city">City</option>
+                            <option value="profession">Profession</option>
+                            <option value="company">Company</option>
+                            <option value="status">Status</option>
+                        </select>
                     </span>
-                    <div class="action-holder"><i class="far fas fa-sort-up">hide</i></div>
-                </div>
+                    <div class="action-holder"><i class="far fas fa-sort-up"></i></div>
+                </form>
                 <div id="show-hide" class="notify-box" *ngIf="(page$ |async) as page">
                     <app-loader class="admin table" *ngIf="(isLoading$|async)"></app-loader>
                     <table class="customers" *ngIf="!(isLoading$|async)">
@@ -51,6 +59,7 @@
                                     </button>
                                 </td>
                             </tr>
+                            <tr *ngIf="(users$|async)?.length == 0" class="no-results"><td colspan="9">No results found</td></tr>
                         </tbody>
                     </table>
                     <app-pagination class="admin" [limit]="limit" [baseUrl]="'/admin/panel/users'" [count]="(count$ | async) || 0"

@@ -61,12 +61,29 @@ p {
     width: 90%;
 }
 
+.notify-header select {
+    border: 1px solid #3A3F48;
+    border-left: none;
+    background: transparent;
+    outline: none;
+    color: white;
+    width: 20%;
+}
+
+.notify-header select option {
+    color: black;
+}
+
+.notify-header select:hover, .notify-header select:focus {
+    border: 1px solid white;
+}
+
 .notify-header input:hover {
     border: 1px solid white;
     border-right: none;
 }
 
-.notify-header input:hover+span i {
+.notify-header input:hover+button {
     border: 1px solid white;
     border-left: none;
 }
@@ -74,6 +91,10 @@ p {
 .notify-header span i {
     color: #818896;
     position: relative;
+}
+
+.notify-header button {
+    background: transparent;
     border: 1px solid #3A3F48;
     border-left: none;
 }
@@ -87,7 +108,7 @@ p {
     border-right: none;
 }
 
-.notify-header input:focus+span i {
+.notify-header input:focus+button {
     border: 1px solid white;
     border-left: none;
 }
@@ -139,8 +160,8 @@ p {
     border-collapse: collapse;
     width: 100%;
 }
-a
-.customers th {
+
+a .customers th {
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: left;
@@ -237,9 +258,13 @@ a
 .fa:before, .fas:before .far:before {
     padding-right: 10px;
 }
-.customers td.no-results {
+
+.customers .no-results td {
     font-size: 18px;
+    color:#d1294d;
+    padding: 10px;
 }
+
 table {
     overflow-x: auto;
     white-space: nowrap
@@ -277,8 +302,21 @@ table::-webkit-scrollbar-thumb {
         padding-left: 10px;
         padding-bottom: 5px;
     }
+    .customers tr.no-results td {
+        text-align:center;
+    }
     .notify-header h2, .action-holder {
         font-size: 16px;
+    }
+    .notify-header>span {
+        width: 75%;
+    }
+    .notify-header input {
+        width: 65%;
+    }
+    .notify-header select {
+        width: 35%;
+        ;
     }
 }
 

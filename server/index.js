@@ -1,4 +1,5 @@
 require('dotenv').config();
+// require('dotenv').config({path:'./server/.env'}); //debugging
 const express = require('express');
 const { port, dbConnection } = require('./config/config');
 const db = require('./config/db');

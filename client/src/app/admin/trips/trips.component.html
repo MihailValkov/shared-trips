@@ -5,13 +5,25 @@
     <div>
         <div class="newest-members">
             <div class="notifications">
-                <div class="notify-header">
+                <form class="notify-header" (submit)="searchHandler(inputElement,selectElement)">
                     <h2><i class="fas fa-route"><span>Trips</span></i></h2>
                     <span>
-                        <input type="text" placeholder="Search trip..." name="search" #inputElement (keypress)="searchHandler(inputElement)">
-                        <span><i class="fas fa-search"></i></span>
+                        <input type="text" placeholder="Search trip..." name="search" #inputElement>
+                        <button><i class="fas fa-search"></i></button>
+                        <select name="criteria" #selectElement>
+                            <option value="startPoint">Start Point</option>
+                            <option value="endPoint">End Point</option>
+                            <option value="seats">Seats</option>
+                            <option value="price">Price</option>
+                            <option value="carBrand">Car Brand</option>
+                            <option value="date">Date</option>
+                            <option value="time">Time</option>
+                        </select>
                     </span>
-                    <div class="action-holder"><i class="far fas fa-sort-up">hide</i></div>
+                    <div class="action-holder"><i class="far fas fa-sort-up"></i></div>
+                </form>
+                <div>
+
                 </div>
                 <div id="show-hide" class="notify-box" *ngIf="(page$ | async ) as page">
                     <app-loader class="admin table" *ngIf="(isLoading$|async)"></app-loader>
@@ -52,7 +64,7 @@
                                         (click)="deleteHandler(trip._id ,count )"><i class="fas fa-times"></i></button>
                                 </td>
                             </tr>
-                            <tr *ngIf="(trips$|async)?.length == 0 "><td colspan="9" class="no-results">No results found</td></tr>
+                            <tr *ngIf="(trips$|async)?.length == 0" class="no-results"><td colspan="9">No results found</td></tr>
                         </tbody>
                     </table>
                     <app-pagination class="admin" [limit]="limit" [baseUrl]="'/admin/panel/trips'"
